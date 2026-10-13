@@ -1,0 +1,15 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add HID device",
+        "description": "Select a connected HID device. Each button, key, axis and hat switch becomes an entity.",
+        "data": { "device": "Device" }
+      }
+    },
+    "abort": {
+      "no_devices": "No readable HID devices found. Check that /dev/hidraw* is accessible to Home Assistant.",
+      "already_configured": "This device is already configured."
+    }
+  }
+}

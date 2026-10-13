@@ -1,0 +1,12 @@
+{
+  "domain": "hid",
+  "name": "HID Devices",
+  "codeowners": ["@bfulham"],
+  "config_flow": true,
+  "documentation": "https://github.com/bfulham/ha-hid",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/bfulham/ha-hid/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
