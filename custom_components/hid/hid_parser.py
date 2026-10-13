@@ -91,6 +91,11 @@ class Field:
     match_value: int | None = None  # array element value meaning "this key down"
     relative: bool = False
 
+    @property
+    def is_vendor_defined(self) -> bool:
+        """True for vendor-specific usages (page 0xFF00+) and fields with no usage."""
+        return self.usage_page >= 0xFF00 or self.usage == 0
+
     def decode(self, payload: bytes) -> bool | int | None:
         """Decode this field from a report payload (report id byte removed)."""
         if self.kind == KEY:

@@ -8,7 +8,7 @@ The integration reads the device's **HID report descriptor** and creates one ent
 |---|---|
 | Button (Button page, or any 1-bit field) | `binary_sensor` – on while held |
 | Keyboard / consumer-control key (array fields) | `binary_sensor` – on while held (disabled by default when a device has more than 32 keys) |
-| Axis / slider / wheel / other value | `sensor` – raw value, with `logical_min` / `logical_max` attributes |
+| Axis / slider / wheel / other value | `sensor` – raw value, with `logical_min` / `logical_max` attributes (vendor-defined and unnamed fields are disabled by default) |
 | Hat switch / D-pad | `sensor` (enum: `center`, `n`, `ne`, `e`, `se`, `s`, `sw`, `w`, `nw`) |
 
 Each device appears as one Home Assistant device, updates are push based (no polling), and entities go unavailable when the device is unplugged and recover automatically when it returns.

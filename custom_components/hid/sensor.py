@@ -36,6 +36,8 @@ class HidValueSensor(HidEntity, SensorEntity):
     def __init__(self, device, item) -> None:
         super().__init__(device, item)
         self._attr_icon = "mdi:axis-arrow"
+        # Vendor-defined / unnamed fields are rarely meaningful; opt in via the UI.
+        self._attr_entity_registry_enabled_default = not item.is_vendor_defined
         self._attr_extra_state_attributes = {
             "logical_min": item.logical_min,
             "logical_max": item.logical_max,

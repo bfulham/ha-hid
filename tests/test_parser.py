@@ -63,3 +63,12 @@ def test_keyboard_keys():
     assert keys["Key A"].decode(report) is True
     assert keys["Key B"].decode(report) is False
     assert next(f for f in fields if f.name == "Key Left Shift").decode(report) is True
+
+
+def test_vendor_defined_flag():
+    vendor = bytes.fromhex(
+        "06 00 ff 09 03 15 00 26 ff 00 75 08 95 02 81 02"  # 2 vendor fields
+    )
+    fields = hp.parse_descriptor(vendor).fields
+    assert len(fields) == 2 and all(f.is_vendor_defined for f in fields)
+    assert not any(f.is_vendor_defined for f in hp.parse_descriptor(GAMEPAD).fields)
